@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Privacidad · HealthOS staging</title>
+<style>body{margin:0 auto;max-width:44rem;padding:2rem 1.2rem;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#16211f;background:#f7f9f8}h1{font-size:1.5rem}h2{font-size:1.1rem;margin-top:2rem}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #dfe6e4;padding:.4rem .6rem;text-align:left}code{background:#eef2f1;padding:.1rem .3rem;border-radius:3px}blockquote{border-left:3px solid #1f6f5c;margin:0;padding:.2rem 1rem;color:#3d514d}</style>
+</head>
+<body>
+<h1>HealthOS · Política de privacidad — entorno de STAGING</h1>
+
+<p><strong>Versión 1.0 · 2026-09-06 · Aplica ÚNICAMENTE al entorno de pruebas</strong></p>
+
+<blockquote>t; Este documento describe un sistema <strong>en pruebas</strong> que trata **exclusivamente datos</blockquote>
+<blockquote>t; sintéticos**. No hay pacientes reales, no hay historia clínica de ninguna persona y no se</blockquote>
+<blockquote>t; presta ningún servicio sanitario. Si has llegado aquí buscando la política de un producto</blockquote>
+<blockquote>t; en funcionamiento, ese producto todavía no existe.</blockquote>
+
+<h2>Quién trata los datos</h2>
+
+<p>HealthOS, sistema de acompañamiento en desarrollo. Responsable: el titular del despliegue de</p>
+<p>staging. Contacto: el que figura en la configuración de la aplicación de Meta asociada.</p>
+
+<h2>Qué datos se tratan en staging</h2>
+
+<table>
+<tr><td>Dato</td><td>Origen</td><td>Cómo se guarda</td></tr>
+<tr><td>Número de teléfono del destinatario de prueba</td><td>WhatsApp Cloud API</td><td><strong>HMAC-SHA256</strong>, nunca en claro</td></tr>
+<tr><td>Texto de los mensajes de prueba</td><td>WhatsApp Cloud API</td><td>Contenido sintético, en base de datos de staging</td></tr>
+<tr><td>Identificadores técnicos de Meta</td><td>WhatsApp Cloud API</td><td><code>provider_message_id</code>, <code>phone_number_id</code></td></tr>
+<tr><td>Marcas de tiempo y estados de entrega</td><td>WhatsApp Cloud API</td><td>Fechas y estados</td></tr>
+</table>
+
+<p><strong>El número de teléfono no se almacena en claro en ningún momento.</strong> Se guarda un HMAC con</p>
+<p>una clave del sistema, de modo que la base de datos no contiene una lista de teléfonos.</p>
+
+<h2>Qué NO se hace</h2>
+
+<li>No se trata información de salud de ninguna persona real.</li>
+<li>No se emiten diagnósticos, recetas ni cambios de tratamiento.</li>
+<li>No se comparten datos con terceros distintos de Meta, que es el transportista del canal.</li>
+<li>No se usan los datos para publicidad, perfilado ni entrenamiento de modelos.</li>
+<li>No se transfieren datos fuera del entorno de staging.</li>
+
+<h2>Base legal</h2>
+
+<p>Consentimiento explícito de la única persona autorizada como destinatario de prueba, que es</p>
+<p>además quien opera el despliegue. No hay terceros implicados.</p>
+
+<h2>Conservación</h2>
+
+<p>Los datos de staging se conservan mientras dura la certificación y se eliminan al retirar el</p>
+<p>entorno. No hay copia de seguridad destinada a conservarlos a largo plazo.</p>
+
+<h2>Derechos</h2>
+
+<p>Al tratarse de una única persona que es a la vez titular y operadora del sistema, el ejercicio</p>
+<p>de los derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición se</p>
+<p>realiza directamente sobre el entorno. La supresión completa se consigue retirando el</p>
+<p>despliegue, lo que borra la base de datos y el almacén de objetos.</p>
+
+<h2>Eliminación de datos</h2>
+
+<p>Ver <code>docs/legal/ELIMINACION_DATOS_STAGING.md</code>.</p>
+
+<h2>Cambios</h2>
+
+<p>Cualquier cambio en el alcance —en particular, admitir datos de personas reales— exige</p>
+<p>sustituir este documento por una política de producto real, con responsable identificado,</p>
+<p>base legal documentada y evaluación de impacto. Hasta entonces, este texto describe lo que</p>
+<p>hay: un laboratorio.</p>
+
+<hr><p style="font-size:.85rem;color:#5b6b67">HealthOS · entorno de pruebas · <a href="../privacy/">Privacidad</a> · <a href="../terms/">Términos</a> · <a href="../data-deletion/">Eliminación de datos</a></p>
+</body>
+</html>
