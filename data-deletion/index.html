@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex">
-<title>Eliminación de datos · HealthOS staging</title>
+<title>Eliminación de datos · MAR VITAL staging</title>
 <style>body{margin:0 auto;max-width:44rem;padding:2rem 1.2rem;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#16211f;background:#f7f9f8}h1{font-size:1.5rem}h2{font-size:1.1rem;margin-top:2rem}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #dfe6e4;padding:.4rem .6rem;text-align:left}code{background:#eef2f1;padding:.1rem .3rem;border-radius:3px}blockquote{border-left:3px solid #1f6f5c;margin:0;padding:.2rem 1rem;color:#3d514d}</style>
 </head>
 <body>
-<h1>HealthOS · Eliminación de datos — entorno de STAGING</h1>
+<h1>MAR VITAL · Eliminación de datos — entorno de STAGING</h1>
 
 <p><strong>Versión 1.0 · 2026-09-06</strong></p>
 
@@ -21,21 +21,14 @@
 
 <h3>Eliminación completa del entorno</h3>
 
-<p>Retirar el laboratorio elimina la base de datos y el almacén de objetos por completo:</p>
-
-<p>```</p>
-<p>python3 scripts/staging_lab.py --retirar &lt;nombre-del-laboratorio&gt;</p>
-<p>```</p>
-
-<p>Esto borra los contenedores y sus volúmenes. No queda copia.</p>
+<p>Retirar el laboratorio elimina la base de datos y el almacén de objetos por completo: se</p>
+<p>borran los contenedores y sus volúmenes, y no queda copia. Quien opera el despliegue tiene el</p>
+<p>procedimiento; aquí se describe qué ocurre, no con qué orden se ejecuta.</p>
 
 <h3>Eliminación del vínculo de un número</h3>
 
-<p>Revocar el vínculo de un número deja de darle acceso a cualquier historia:</p>
-
-<p>```</p>
-<p>whatsappingress.mover_vinculo(con, clave, numero, &quot;revoked&quot;, actor, motivo)</p>
-<p>```</p>
+<p>Revocar el vínculo de un número deja de darle acceso a cualquier historia. La revocación queda</p>
+<p>registrada con quién la pidió y por qué.</p>
 
 <p>El vínculo revocado <strong>se conserva</strong> a propósito: si se borrara, el mismo número volvería a</p>
 <p>entrar como desconocido y podría pedir vincularse otra vez, que es justo lo que una</p>
@@ -43,8 +36,8 @@
 
 <h3>Eliminación de los mensajes</h3>
 
-<p>Los eventos recibidos viven en la tabla <code>whatsapp_event</code> de la base de staging y desaparecen</p>
-<p>con el entorno. No se replican fuera de él.</p>
+<p>Los eventos recibidos viven en la base de staging y desaparecen con el entorno. No se</p>
+<p>replican fuera de él.</p>
 
 <h2>Qué NO se elimina, y por qué</h2>
 
@@ -59,6 +52,6 @@
 <p>identificación del solicitante, plazo y confirmación, y este documento tendría que</p>
 <p>reescribirse.</p>
 
-<hr><p style="font-size:.85rem;color:#5b6b67">HealthOS · entorno de pruebas · <a href="../privacy/">Privacidad</a> · <a href="../terms/">Términos</a> · <a href="../data-deletion/">Eliminación de datos</a></p>
+<hr><p style="font-size:.85rem;color:#5b6b67">MAR VITAL · entorno de pruebas · <a href="../privacy/">Privacidad</a> · <a href="../terms/">Términos</a> · <a href="../data-deletion/">Eliminación de datos</a></p>
 </body>
 </html>

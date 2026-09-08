@@ -6,23 +6,27 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex">
-<title>Privacidad · HealthOS staging</title>
+<title>Privacidad · MAR VITAL staging</title>
 <style>body{margin:0 auto;max-width:44rem;padding:2rem 1.2rem;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#16211f;background:#f7f9f8}h1{font-size:1.5rem}h2{font-size:1.1rem;margin-top:2rem}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #dfe6e4;padding:.4rem .6rem;text-align:left}code{background:#eef2f1;padding:.1rem .3rem;border-radius:3px}blockquote{border-left:3px solid #1f6f5c;margin:0;padding:.2rem 1rem;color:#3d514d}</style>
 </head>
 <body>
-<h1>HealthOS · Política de privacidad — entorno de STAGING</h1>
+<h1>MAR VITAL · Política de privacidad — entorno de STAGING</h1>
 
 <p><strong>Versión 1.0 · 2026-09-06 · Aplica ÚNICAMENTE al entorno de pruebas</strong></p>
 
-<blockquote>t; Este documento describe un sistema <strong>en pruebas</strong> que trata **exclusivamente datos</blockquote>
-<blockquote>t; sintéticos**. No hay pacientes reales, no hay historia clínica de ninguna persona y no se</blockquote>
-<blockquote>t; presta ningún servicio sanitario. Si has llegado aquí buscando la política de un producto</blockquote>
-<blockquote>t; en funcionamiento, ese producto todavía no existe.</blockquote>
+<blockquote>Este documento describe un sistema <strong>en pruebas</strong> que trata <strong>datos sintéticos</strong>.</blockquote>
+<blockquote>No hay pacientes reales, no hay historia clínica de ninguna persona y no se presta</blockquote>
+<blockquote>ningún servicio sanitario. Si has llegado aquí buscando la política de un producto en</blockquote>
+<blockquote>funcionamiento, ese producto todavía no existe.</blockquote>
 
 <h2>Quién trata los datos</h2>
 
-<p>HealthOS, sistema de acompañamiento en desarrollo. Responsable: el titular del despliegue de</p>
-<p>staging. Contacto: el que figura en la configuración de la aplicación de Meta asociada.</p>
+
+
+<p><strong>Responsable del tratamiento:</strong> todavía no hay una entidad jurídica constituida. Durante</p>
+<p>esta fase el sistema lo opera una única persona a título individual, que es además la única</p>
+<p>destinataria de las pruebas. <strong>Contacto:</strong> el que figura en la configuración de la aplicación</p>
+<p>de Meta asociada.</p>
 
 <h2>Qué datos se tratan en staging</h2>
 
@@ -30,7 +34,7 @@
 <tr><td>Dato</td><td>Origen</td><td>Cómo se guarda</td></tr>
 <tr><td>Número de teléfono del destinatario de prueba</td><td>WhatsApp Cloud API</td><td><strong>HMAC-SHA256</strong>, nunca en claro</td></tr>
 <tr><td>Texto de los mensajes de prueba</td><td>WhatsApp Cloud API</td><td>Contenido sintético, en base de datos de staging</td></tr>
-<tr><td>Identificadores técnicos de Meta</td><td>WhatsApp Cloud API</td><td><code>provider_message_id</code>, <code>phone_number_id</code></td></tr>
+<tr><td>Identificadores técnicos de Meta</td><td>WhatsApp Cloud API</td><td>Referencias del mensaje y del número de empresa, redactadas</td></tr>
 <tr><td>Marcas de tiempo y estados de entrega</td><td>WhatsApp Cloud API</td><td>Fechas y estados</td></tr>
 </table>
 
@@ -64,7 +68,7 @@
 
 <h2>Eliminación de datos</h2>
 
-<p>Ver <code>docs/legal/ELIMINACION_DATOS_STAGING.md</code>.</p>
+<p>Ver la página de eliminación de datos.</p>
 
 <h2>Cambios</h2>
 
@@ -73,6 +77,6 @@
 <p>base legal documentada y evaluación de impacto. Hasta entonces, este texto describe lo que</p>
 <p>hay: un laboratorio.</p>
 
-<hr><p style="font-size:.85rem;color:#5b6b67">HealthOS · entorno de pruebas · <a href="../privacy/">Privacidad</a> · <a href="../terms/">Términos</a> · <a href="../data-deletion/">Eliminación de datos</a></p>
+<hr><p style="font-size:.85rem;color:#5b6b67">MAR VITAL · entorno de pruebas · <a href="../privacy/">Privacidad</a> · <a href="../terms/">Términos</a> · <a href="../data-deletion/">Eliminación de datos</a></p>
 </body>
 </html>
