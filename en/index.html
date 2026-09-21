@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="description" content="A platform that brings together a person's health information, device data, trends, alerts and history, and shares it with the people who care for them.">
+<title>MAR VITAL · Family health monitoring and care coordination</title>
+<style>*{box-sizing:border-box}
+:root{--tinta:#16211f;--suave:#5b6b67;--linea:#dfe6e4;--fondo:#f7f9f8;--panel:#fff;--marca:#1f6f5c;--marca-clara:#e8f1ee}
+body{margin:0;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--tinta);background:var(--fondo)}
+a{color:var(--marca)}
+.envoltura{max-width:64rem;margin:0 auto;padding:0 1.2rem}
+/* Barra superior. `position:sticky` y no `fixed`: fixed tapa contenido al hacer zoom. */
+.barra{position:sticky;top:0;z-index:5;background:rgba(247,249,248,.94);border-bottom:1px solid var(--linea)}
+.barra .envoltura{display:flex;align-items:center;gap:1rem;min-height:3.4rem;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--tinta)}
+.logo svg{flex:0 0 auto}
+/* SIN `text-transform:uppercase` AQUI: convertía «sobre HealthOS» en «SOBRE HEALTHOS» y
+   el nombre de la plataforma perdia su capitalización. Una marca mal escrita en la
+   cabecera es de las pocas cosas que se leen siempre. */
+.logo small{display:block;font-weight:400;font-size:.72rem;color:var(--suave);letter-spacing:.02em}
+.menu{display:flex;gap:.2rem;margin-left:auto;flex-wrap:wrap;align-items:center}
+.menu a{text-decoration:none;color:var(--suave);padding:.35rem .6rem;border-radius:999px;font-size:.92rem}
+.menu a:hover{background:var(--marca-clara);color:var(--marca)}
+.idioma{border:1px solid var(--linea);border-radius:999px;padding:.25rem;display:inline-flex;background:var(--panel)}
+.idioma a{padding:.2rem .6rem;border-radius:999px;font-size:.82rem;text-decoration:none;color:var(--suave)}
+.idioma a.activo{background:var(--marca);color:#fff}
+/* Hero */
+.hero{padding:3.2rem 0 2.4rem;border-bottom:1px solid var(--linea)}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;margin:.4rem 0 .6rem;letter-spacing:-.02em}
+.hero .lema{font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--suave);max-width:42rem;margin:0 0 1.2rem}
+.hero p{max-width:44rem}
+.pastilla{display:inline-flex;align-items:center;gap:.4rem;background:var(--marca-clara);color:var(--marca);border-radius:999px;padding:.3rem .85rem;font-size:.82rem;font-weight:600}
+.acciones{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
+.boton{display:inline-block;padding:.6rem 1.1rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.95rem}
+.boton.principal{background:var(--marca);color:#fff}
+.boton.sec{border:1px solid var(--linea);background:var(--panel);color:var(--tinta)}
+/* Secciones */
+section{padding:2.6rem 0;border-bottom:1px solid var(--linea)}
+section:last-of-type{border-bottom:0}
+h2{font-size:clamp(1.3rem,3vw,1.75rem);margin:0 0 .4rem;letter-spacing:-.01em}
+.bajada{color:var(--suave);max-width:44rem;margin:0 0 1.4rem}
+.rejilla{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.tarjeta{background:var(--panel);border:1px solid var(--linea);border-radius:12px;padding:1.1rem}
+.tarjeta h3{margin:.5rem 0 .35rem;font-size:1.02rem}
+.tarjeta p{margin:0;color:var(--suave);font-size:.95rem}
+/* Dos párrafos seguidos dentro de una tarjeta se leían como uno solo. */
+.tarjeta p + p{margin-top:.7rem}
+.icono{width:34px;height:34px;border-radius:9px;background:var(--marca-clara);display:flex;align-items:center;justify-content:center;color:var(--marca)}
+.pasos{counter-reset:paso}
+.paso{position:relative;padding-left:3rem}
+.paso::before{counter-increment:paso;content:counter(paso);position:absolute;left:0;top:.9rem;width:2rem;height:2rem;border-radius:50%;background:var(--marca);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+.legal-enlaces{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
+.legal-enlaces a{display:block;background:var(--panel);border:1px solid var(--linea);border-radius:12px;padding:1rem;text-decoration:none;color:var(--tinta)}
+.legal-enlaces a:hover{border-color:var(--marca)}
+.legal-enlaces strong{display:block;color:var(--marca)}
+.legal-enlaces span{color:var(--suave);font-size:.92rem}
+.nota{background:var(--panel);border:1px solid var(--linea);border-left:4px solid var(--marca);border-radius:10px;padding:1rem 1.1rem;margin:1.4rem 0 0}
+.nota p{margin:.3rem 0}
+.nota strong{color:var(--tinta)}
+footer{padding:2rem 0 3rem;color:var(--suave);font-size:.9rem}
+footer .envoltura{display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--suave)}
+@media (max-width:560px){
+  .barra .envoltura{min-height:auto;padding-top:.5rem;padding-bottom:.5rem}
+  .menu{margin-left:0;width:100%}
+  .hero{padding:2.2rem 0 1.8rem}
+  .paso{padding-left:2.6rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="barra"><div class="envoltura">
+<a class="logo" href="../"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1f6f5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-5 3 10 2.5-7 1.8 4H21"/></svg><span>MAR VITAL<small>sobre HealthOS</small></span></a>
+<nav class="menu"><a href="#como">How it works</a><a href="#capacidades">Capabilities</a><a href="#persona">Each person</a><a href="#privacidad">Privacy</a><a href="#contacto">Contact</a>
+<span class="idioma"><a class="" href="../">ES</a><a class="activo" href="">EN</a></span>
+</nav>
+</div></header>
+
+<main>
+<div class="hero"><div class="envoltura">
+<span class="pastilla">Platform in development · pilot</span>
+<h1>Understand what is changing in the health of someone you care for</h1>
+<p class="lema">MAR VITAL brings together a person's measurements, wearable data, trends, alerts and history, and puts them where their family can read them.</p>
+<p>It runs on <strong>HealthOS</strong>, the platform that collects the data, organises it per person and explains it in plain words. It does not diagnose and does not replace professional medical care.</p>
+<div class="acciones"><a class="boton principal" href="#como">How it works</a>
+<a class="boton sec" href="../privacy/">Privacy</a></div>
+</div></div>
+
+<section id="como"><div class="envoltura">
+<h2>How it works</h2><p class="bajada">Three steps, and none of them invents anything that was not measured.</p>
+<div class="rejilla pasos"><article class="tarjeta paso"><h3>Collect</h3><p>Measurements entered by the family, data from an authorised watch or band, messages, photos and documents. Every data point keeps its origin: who or what provided it.</p></article><article class="tarjeta paso"><h3>Understand</h3><p>Series are drawn with their real gaps — if nothing was measured, the line breaks — alongside text that describes what was recorded: what is visible, what changed and what is worth watching.</p></article><article class="tarjeta paso"><h3>Follow up</h3><p>Alerts are opened by deterministic rules and show the data that triggered them. The family sees what happened, when, and why the system flags it.</p></article></div>
+</div></section>
+
+<section id="capacidades"><div class="envoltura">
+<h2>Capabilities</h2><p class="bajada">What the system does today, stated plainly.</p>
+<div class="rejilla"><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><path d="M12 9v3l2 1"/><path d="M9 2h6M9 22h6"/></svg></div><h3>Wearable data</h3><p>Heart rate, oxygen, steps, sleep and other measures the device actually delivers. What a device does not measure is reported as not measured.</p></article><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-6 4 3 4-7 5 5"/></svg></div><h3>Trends</h3><p>Charts over time ranges, with the person's own usual baseline when there are enough of their measurements to compute it.</p></article><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div><h3>Alerts</h3><p>Deterministic rules, with the evidence in plain sight and its level. An alert flags; it does not diagnose and does not contact anyone on its own.</p></article><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16"/><circle cx="10" cy="8" r="2"/><circle cx="14" cy="16" r="2"/><path d="M4 8h4M4 16h8"/></svg></div><h3>Timeline</h3><p>Measurements, messages, voice notes, photos, documents, alerts, medication and appointments, in order and with their provenance.</p></article><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 20c0-2 1-3 3-3"/></svg></div><h3>Family care</h3><p>Several people can follow the same patient, each with the permissions they were granted.</p></article><article class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg></div><h3>Communication</h3><p>Messages and voice notes arriving through an authorised channel, attached to the right person.</p></article></div>
+</div></section>
+
+<section id="persona"><div class="envoltura">
+<h2>Built around the person</h2><p class="bajada">Each patient has their own profile, and the system looks at one at a time.</p>
+<div class="tarjeta"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg></div><p>On entering you choose who you are looking at, and the whole screen — summary, charts, alerts, history — belongs to that person and to no one else. Switching profile changes everything you see.</p><p>A profile with no data says so in words: no zeros, no empty charts pretending to be measurements. Having no information and having normal information are two different things, and the screen tells them apart.</p></div>
+</div></section>
+
+<section id="privacidad"><div class="envoltura">
+<h2>Privacy</h2><p class="bajada">What happens with the information, in documents you can read.</p>
+<div class="legal-enlaces"><a href="../privacy/"><strong>Privacy policy</strong><span>What data is processed, what for, and who can see it.</span></a><a href="../terms/"><strong>Terms of service</strong><span>What this system is, and what it is not.</span></a><a href="../data-deletion/"><strong>Data deletion</strong><span>What can be deleted and how to request it.</span></a></div>
+<div class="nota"><div class="icono"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>What this system is not</h3><p><strong>It does not replace professional medical care.</strong> In an emergency, call your emergency services.</p><p><strong>It does not diagnose</strong>, prescribe, or change treatments.</p><p><strong>It holds no medical certification or regulatory approval.</strong> It is a platform in development, in a pilot phase.</p></div>
+</div></section>
+
+<section id="contacto"><div class="envoltura">
+<h2>Contact</h2><p class="bajada">For privacy questions, data deletion or information about the pilot:</p>
+<p><a href="mailto:davidrambauth08@gmail.com">davidrambauth08@gmail.com</a></p>
+</div></section>
+</main>
+
+<footer><div class="envoltura">
+<span>MAR VITAL · platform in development</span>
+<span><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../data-deletion/">Data deletion</a></span>
+</div></footer>
+</body>
+</html>
